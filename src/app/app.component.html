@@ -1,25 +1,54 @@
-<div class="weatherZ">
-  <div class="container">
-    <!-- Start Landing -->
+<div class="weatherZ">    
     <div class="weatherZ-wrapper">
-      <div class="navbar">
-        <span class="logo">WeatherZ</span>  
-        <ul class="nav-list">
-          <li>Home</li>
-          <li>About</li>
-          <li>Features</li>
-          <li>Contact</li>
-        </ul>
-        <button class="switch-theme" (click)="toggleTheme()">
-          <span class="active">
-            <i class="bi bi-brightness-low-fill"></i>
-          </span>
-          <span>
-            <i class="bi bi-moon-fill"></i>
-          </span>
-        </button>
+      <!-- Start Navbar -->
+      <nav class="navbar">
+        <div class="logo">
+          <img src="assets/images/icon.png" alt="logo" />
+          WeatherZ
+        </div>
+        <div class="nav-right">
+          <ul class="nav-list">
+            <li>Home</li>
+            <li>About</li>
+            <li>Features</li>
+            <li>Contact</li>
+          </ul>
+          <button class="switch-theme" (click)="toggleTheme()">         
+            <span [@button-theme]="isThemeDark() ? 'default': 'active'">
+              <i class="bi bi-brightness-low-fill"></i>
+            </span>
+            <span [@button-theme]="!isThemeDark() ? 'default': 'active'">
+              <i class="bi bi-moon-fill"></i>
+            </span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <!-- Start Home -->
+      <div class="home">
+          <div class="description">
+            <p>
+              The Revolutionary App That Helps To Control Your Own Fitness
+            </p> 
+            <button>
+              <span>
+                Download Now
+              </span>
+              <i class="bi bi-download"></i>
+            </button>
+          </div>
+          <div class="phone-demo">
+            <img  class="phone-cover" src="assets/images/phone-cover.png" alt="phone-cover" />
+            <div class="screen-demo">
+              @if(images[currentIndex]) {
+                <img  
+                  [@slideAnimation] 
+                  [src]="'assets/images/demo-screen/' + images[currentIndex] +'.jpeg'"
+                  [alt]="'screen'+currentIndex" />
+              }
+            </div>
+          </div>
       </div>
+      <!-- End Home -->
     </div>
-    <!-- End Landing -->
-  </div>
 </div>

@@ -1,4 +1,5 @@
-import { effect, Injectable, signal, WritableSignal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { effect, Inject, Injectable, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,18 +7,21 @@ import { effect, Injectable, signal, WritableSignal } from '@angular/core';
 export class ThemeService {
   private readonly THEME_KEY = "theme";
   #path: string = "/assets/themes";
-  #stylesheet: HTMLLinkElement | null = document.getElementById("theme") as HTMLLinkElement;
+  #stylesheet: HTMLLinkElement | null = null;;
   themeSignal: WritableSignal<string> = signal<string>("light");
 
-  constructor() {
-    this.initializeThemeFromPreferences();
-    effect(() => {
-      this.updateRenderedTheme();
-    });
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.#stylesheet = document.getElementById("theme") as HTMLLinkElement | null;
+      this.initializeThemeFromPreferences();
+      effect(() => {
+        this.updateRenderedTheme();
+      });
+    }
   }
 
   toggleTheme(): void {
-    this.themeSignal.update((prev) =>
+    this.themeSignal.update((prev) => 
       this.isDarkThemeActive() ? "light" : "dark"
     );
   }
@@ -26,15 +30,16 @@ export class ThemeService {
     return this.themeSignal() === "dark" ? true : false;
   }
 
-  private initializeThemeFromPreferences(): void {
+  private initializeThemeFromPreferences(): void {    
     if (!this.#stylesheet) {
       this.initializeStylesheet();
-    }
+    }      
     const storedTheme = localStorage.getItem(this.THEME_KEY);
     if (storedTheme) {
       this.themeSignal.update(() => storedTheme);
     }
   }
+  
 
   private initializeStylesheet(): void {
     this.#stylesheet = document.createElement("link");
@@ -49,4 +54,5 @@ export class ThemeService {
     }
     localStorage.setItem(this.THEME_KEY, this.themeSignal());
   }
+  
 }
