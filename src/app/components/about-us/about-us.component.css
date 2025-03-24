@@ -1,0 +1,16 @@
+.about-us {
+    padding: 20px 0;
+}
+.about-us .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.about-us img {
+    width: 500px;
+    height: 500px;
+}
+.about-us .description {
+    font-size: 1.3rem;
+    line-height: 1.3;
+}

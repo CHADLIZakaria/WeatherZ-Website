@@ -1,0 +1,83 @@
+.home {
+    padding: 100px 50px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    gap: 20px;
+    position: relative;
+}
+.home .description p {
+    font-size: 2rem;
+}
+.home .description button {
+    position: relative;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 1000ms;
+    animation: bounce 1.5s infinite;
+}
+.home .description button:hover {
+    transform: translateY(-10%);
+}
+.home .description button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 6px;
+    transition: all ease-in-out 1000ms;
+}
+.home .description button:hover::after {
+    width: 100%;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.home .phone-demo {
+    height: 600px;
+    position: relative;
+}
+.home .phone-demo .phone-cover {
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: 2;
+}
+.home .phone-demo .screen-demo {
+    position: relative;
+    width: 323px;
+    height: 589px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home .phone-demo .screen-demo img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 350px;
+    height: 600px;
+    z-index: 1;
+    object-fit: cover;
+    padding: 12px 35px;
+}
