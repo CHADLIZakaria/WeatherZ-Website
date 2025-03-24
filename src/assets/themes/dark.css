@@ -12,3 +12,35 @@
 .weatherZ-wrapper .navbar .switch-theme span.active {
   background-color: #545151;
 }
+/* Start Navbar */
+:root {
+  --main-color: #b9974c;
+  --navbar-background-color: linear-gradient(27deg, rgba(145,155,120,1) 0%, rgba(117,126,107,1) 10%, rgba(67,80,89,1) 27%, rgba(36,50,77,1) 50%, rgba(25,40,73,1) 64%, rgba(13,29,68,1) 86%, rgba(0,17,63,1) 100%)!important;
+}
+/* End Navbar */
+/* Start Home */
+.home .description button {
+  border: 1px solid #ffcb57;
+  background: #b9974c;
+  box-shadow: 4px 6px 12px 3px #bd9b51;
+  -webkit-box-shadow: 4px 6px 12px 3px #bd9b51;
+  -moz-box-shadow: 4px 6px 12px 3px #bd9b51;
+}
+.home .description button::after {
+  background: #c7af7b;
+}
+/* End Home */
+/* Start Features */
+.features .feature .icon i {
+  color: #b9974c;
+}
+.features .feature .description  li::before {
+  color: #b9974c;
+}
+/* End Features */
+/* Start Scroll Top */
+.scroll-top {
+  border: 1px solid #f4d286;
+  background: #b9974c;
+}
+/* End Scroll Top */

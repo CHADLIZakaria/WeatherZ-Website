@@ -1,0 +1,22 @@
+<nav class="navbar" [@background]="showBackground ? 'visible' : 'hidden'">
+    <div class="logo">
+      <img src="assets/images/icon.png" alt="logo" />
+      WeatherZ
+    </div>
+    <div class="nav-right">
+      <ul class="nav-list">
+        <li>Home</li>
+        <li>About</li>
+        <li>Features</li>
+        <li>Contact</li>
+      </ul>
+      <button class="switch-theme" (click)="toggleTheme()">         
+        <span [@button-theme]="isThemeDark() ? 'default': 'active'">
+          <i class="bi bi-brightness-low-fill"></i>
+        </span>
+        <span [@button-theme]="!isThemeDark() ? 'default': 'active'">
+          <i class="bi bi-moon-fill"></i>
+        </span>
+      </button>
+    </div>
+</nav>
