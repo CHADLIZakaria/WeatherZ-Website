@@ -7,8 +7,8 @@ import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   animations: [
-    trigger('translateFromTopAnimation', [
-      transition('void => *', [
+    trigger('home', [
+      transition('* <=> *', [
         style({ opacity: 0, transform: 'translateY(-100%)' }),
         animate('500ms ease-out', style({ opacity: 1, transform: 'translateY(0%)' })),
       ]),

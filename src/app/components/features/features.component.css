@@ -1,14 +1,14 @@
 .features {
     padding: 20px 0;
+    position: relative;
 }
 .features .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 60px;
 }
 .features .feature {
-   width: 45%;
    background-color: white;
    color: #000000;
    display: flex;
@@ -16,6 +16,11 @@
    border-radius: 6px;
    padding: 10px;
    line-height: 1.5;
+   transition: all ease-in 500ms;
+}
+.features .feature:hover {
+    transform: scale(1.05);
+    background-color: #f3f3f3;
 }
 .features .feature .icon i {
     font-size: 50px;

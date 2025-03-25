@@ -1,5 +1,6 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, sequence, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-about-us',
@@ -7,13 +8,25 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css',
   animations: [
-    trigger('fadeIn', [
-      state('hidden', style({ opacity: 0, transform: 'translateX(-100%)' })),
-      state('visible', style({ opacity: 1, transform: 'translateX(0)' })),
-      transition('hidden => visible', animate('0.6s ease-out')),
-      transition('visible => hidden', animate('0.3s ease-in')),
+    trigger('about', [
+      transition('* <=> *', [
+        group([
+          query('.title', [
+            style({ opacity: 0.3, transform: 'translateY(50%)'}),
+            animate('500ms', style({ opacity: 1, transform: 'translateY(0px)' })),
+          ]),
+          query('#slideInImage', [
+            style({ opacity: 0.3, transform: 'translateY(50%)'}),
+            animate('500ms', style({ opacity: 1, transform: 'translateY(0px)' })),
+          ]),
+          query('#fadeInText', [
+            style({ opacity: 0, transform: 'translateY(50%)'}),
+            animate('1000ms', style({ opacity: 1, transform: 'translateY(0px)' })),
+          ]),
+        ]),
+      ])    
     ])
-  ]
+  ]  
 })
 export class AboutUsComponent {
   isVisible = false;

@@ -1,54 +1,56 @@
-<div class="features">
+@if (isVisible) {
+}
+<div class="features" [@features]="!isVisible">
     <div class="title">Features</div>
     <div class="container">
         <div class="feature">
-        <div class="icon">
-            <i class="bi bi-cloud-sun"></i>
-        </div>
-        <ul class="description">
-            <li>
-            Get live weather conditions: temperature, humidity, wind speed, and visibility.
-            </li>
-            <li>
-            Auto-refresh for real-time accuracy.
-            </li>
-        </ul>
-        </div>
-        <div class="feature">
-        <div class="icon">
-            <i class="bi bi-bar-chart"></i>
-        </div>
-        <ul class="description">
-            <li>
-            View weather-related stats including temperature, wind speed, and humidity in an easy-to-understand format.
-            </li>
-        </ul>
+            <div class="icon">
+                <i class="bi bi-cloud-sun"></i>
+            </div>
+            <ul class="description">
+                <li>
+                    Get live weather conditions: temperature, humidity, wind speed, and visibility.
+                </li>
+                <li>
+                    Auto-refresh for real-time accuracy.
+                </li>
+            </ul>
         </div>
         <div class="feature">
-        <div class="icon">
-            <i class="bi bi-heart"></i>
-        </div>
-        <ul class="description">
-            <li>
-            Search and save multiple locations to track weather globally.
-            </li>
-            <li>
-            Mark favorite locations for quick access.
-            </li>
-        </ul>
+            <div class="icon">
+                <i class="bi bi-bar-chart"></i>
+            </div>
+            <ul class="description">
+                <li>
+                    View weather-related stats including temperature, wind speed, and humidity in an easy-to-understand format.
+                </li>
+            </ul>
         </div>
         <div class="feature">
-        <div class="icon">
-            <i class="bi bi-translate"></i>
+            <div class="icon">
+                <i class="bi bi-heart"></i>
+            </div>
+            <ul class="description">
+                <li>
+                    Search and save multiple locations to track weather globally.
+                </li>
+                <li>
+                    Mark favorite locations for quick access.
+                </li>
+            </ul>
         </div>
-        <ul class="description">
-            <li>
-            Supports multiple languages for a personalized experience.
-            </li>
-            <li>
-            Auto-refresh for real-time accuracy.
-            </li>
-        </ul>
+        <div class="feature">
+            <div class="icon">
+                <i class="bi bi-translate"></i>
+            </div>
+            <ul class="description">
+                <li>
+                    Supports multiple languages for a personalized experience.
+                </li>
+                <li>
+                    Auto-refresh for real-time accuracy.
+                </li>
+            </ul>
         </div>
     </div>
 </div>

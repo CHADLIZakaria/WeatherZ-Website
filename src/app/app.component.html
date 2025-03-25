@@ -1,22 +1,32 @@
 <div class="weatherZ">    
     <div class="weatherZ-wrapper">
       <!-- Start Navbar -->
-      <app-navbar></app-navbar>
+      <app-navbar (scrollToSection)="scrollTo($event)"></app-navbar>
       <!-- End Navbar -->
       <!-- Start Home -->
-      <app-home></app-home>
+      <div id="home">
+        <app-home></app-home>
+      </div>
       <!-- End Home -->
       <!-- Start About Us -->
-      <app-about-us></app-about-us>
+      <div id="about">
+        <app-about-us></app-about-us>
+      </div>
       <!-- End About Us -->
       <!-- Start Features -->
-      <app-features></app-features>
+      <div id="features">
+        <app-features></app-features>
+      </div>
       <!-- End Features -->
       <!-- Start Contact -->
-      <app-contact></app-contact>
+      <div id="contact">
+        <app-contact></app-contact>
+      </div>
        <!-- End Contact -->
       <!-- Start Footer -->
-      <app-footer></app-footer>
+       <div>
+         <app-footer></app-footer>
+       </div>
        <!-- End Footer -->
       <!-- Start Button Scroll to Top -->
       <app-scroll-top></app-scroll-top>

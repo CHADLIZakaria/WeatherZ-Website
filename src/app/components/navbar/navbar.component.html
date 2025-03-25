@@ -5,10 +5,10 @@
     </div>
     <div class="nav-right">
       <ul class="nav-list">
-        <li>Home</li>
-        <li>About</li>
-        <li>Features</li>
-        <li>Contact</li>
+        <li><a (click)="scrollTo('home')">Home</a></li>
+        <li><a (click)="scrollTo('about')">About</a></li>
+        <li><a (click)="scrollTo('features')">Features</a></li>
+        <li><a (click)="scrollTo('contact')">Contact</a></li>
       </ul>
       <button class="switch-theme" (click)="toggleTheme()">         
         <span [@button-theme]="isThemeDark() ? 'default': 'active'">

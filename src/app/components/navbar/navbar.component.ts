@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, output } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -28,6 +28,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class NavbarComponent {
   #theme: ThemeService = inject(ThemeService);
+  scrollToSection = output<string>();
   showBackground = false
 
   @HostListener('window:scroll', [])
@@ -47,5 +48,11 @@ export class NavbarComponent {
   isThemeDark(): boolean {
     return this.#theme.isDarkThemeActive()
   }
+
+  scrollTo(section: string) {
+    this.scrollToSection.emit(section);
+  }
+
+
 
 }
