@@ -1,22 +1,22 @@
-<div class="home">
-    <div class="description" @translateFromLeftAnimation>
+<div [@home] class="home">
+    <div class="description">
       <p>
         Your Personal Weather Assistant <br /> Right in Your Hands!
       </p> 
-      <button>
+      <a href="https://play.google.com/store/apps/details?id=com.zchadli.weather" target="_blank">
         <span>
           Download Now
         </span>
         <i class="bi bi-download"></i>
-      </button>
+      </a>
     </div>
-    <div class="phone-demo" @translateFromTopAnimation>
+    <div class="phone-demo">
       <img class="phone-cover" src="assets/images/phone-cover.png" alt="phone-cover" />
       <div class="screen-demo">
         @if (images[currentIndex]) {
             <img
               [@slideAnimation]="currentIndex"
-              [src]="'assets/images/demo-screen/' + images[currentIndex] + '.jpeg'"
+              [src]="'assets/images/demo-screen/' + (isDarkMode() ? 'dark/':'light/') + images[currentIndex] + '.jpeg'"
               [alt]="'screen' + currentIndex" />
         }
       </div>

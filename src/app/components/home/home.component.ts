@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,6 @@ import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
       transition('* <=> *', [
         style({ opacity: 0, transform: 'translateY(-100%)' }),
         animate('500ms ease-out', style({ opacity: 1, transform: 'translateY(0%)' })),
-      ]),
-    ]),
-    trigger('translateFromLeftAnimation', [
-      transition('void => *', [
-        style({ opacity: 0, transform: 'translateX(-100%)' }),
-        animate('500ms ease-out', style({ opacity: 1, transform: 'translateX(0%)' })),
       ]),
     ]),
     trigger('slideAnimation', [
@@ -34,10 +29,16 @@ import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit, OnDestroy {
   images = [
     'screen1',
-    'screen2',   
+    'screen2',
+    'screen3',
+    'screen4',  
+    'screen5',
+    'screen6',  
   ]
   currentIndex = 0;
   private intervalId: any;
+
+  #theme: ThemeService = inject(ThemeService);
 
 
   constructor(private ngZone: NgZone) {}
@@ -48,7 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.ngZone.run(() => {
           this.nextSlide();
         });
-      }, 5000);
+      }, 3000);
     });
   }
 
@@ -65,5 +66,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     else {
       this.currentIndex++;
     }
+  }
+
+  isDarkMode(): boolean {
+    return this.#theme.isDarkThemeActive()
   }
 }

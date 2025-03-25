@@ -12,7 +12,7 @@
 .home .description p {
     font-size: 2rem;
 }
-.home .description button {
+.home .description a {
     position: relative;
     font-size: 1.5rem;
     color: white;
@@ -23,11 +23,13 @@
     cursor: pointer;
     transition: all ease-in-out 1000ms;
     animation: bounce 1.5s infinite;
+    width: fit-content;
+    text-decoration: none;
 }
-.home .description button:hover {
+.home .description a:hover {
     transform: translateY(-10%);
 }
-.home .description button::after {
+.home .description a::after {
     content: "";
     z-index: -1;
     position: absolute;
@@ -38,7 +40,7 @@
     border-radius: 6px;
     transition: all ease-in-out 1000ms;
 }
-.home .description button:hover::after {
+.home .description a:hover::after {
     width: 100%;
 }
 @keyframes bounce {

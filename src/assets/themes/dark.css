@@ -19,14 +19,14 @@
 }
 /* End Navbar */
 /* Start Home */
-.home .description button {
+.home .description a {
   border: 1px solid #ffcb57;
   background: #b9974c;
   box-shadow: 4px 6px 12px 3px #bd9b51;
   -webkit-box-shadow: 4px 6px 12px 3px #bd9b51;
   -moz-box-shadow: 4px 6px 12px 3px #bd9b51;
 }
-.home .description button::after {
+.home .description a::after {
   background: #c7af7b;
 }
 /* End Home */
