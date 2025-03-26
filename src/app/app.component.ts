@@ -21,10 +21,11 @@ export class AppComponent {
 
   scrollTo(section: string) {
     const element = document.getElementById(section)
+    const navbar = document.querySelector('.navbar') as HTMLElement;
     if(element) {
       const elementRect = element.getBoundingClientRect();
       const elementTop = elementRect.top + window.scrollY;
-      const offsetPosition = elementTop - 100;    
+      const offsetPosition = elementTop - navbar.offsetHeight;    
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'

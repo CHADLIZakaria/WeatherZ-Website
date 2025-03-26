@@ -5,24 +5,36 @@
             <span>Social</span>
             <ul class="social">
                 <li>
-                    <i class="bi bi-instagram"></i>
+                    <a href="">
+                        <i class="bi bi-instagram"></i>
+                        WeatherZ
+                    </a>
                 </li>
-                <li>WeatherZ</li>
             </ul>
             <ul class="social">
                 <li>
-                    <i class="bi bi-envelope-at"></i>                    
+                    <a href="mailto:Weatherz2024@gmail.com">
+                        <i class="bi bi-envelope-at"></i>                    
+                        Weatherz2024&#64;gmail.com
+                    </a>
                 </li>
-                <li>WeatherZgmail.com</li>
             </ul>
         </div>
         <div class="pages">
             <span>Pages</span>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Features</li>
-                <li>Contact</li>
+                <li (click)="scrollTo('home')">
+                    Home
+                </li>
+                <li (click)="scrollTo('about')">
+                    About
+                </li>
+                <li (click)="scrollTo('features')">
+                    Features
+                </li>
+                <li (click)="scrollTo('contact')">
+                    Contact
+                </li>
                 <li>Privacy Policy</li>
             </ul>
         </div>

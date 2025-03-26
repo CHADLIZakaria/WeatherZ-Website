@@ -6,9 +6,19 @@
     align-items: center;
     gap: 20px;
 }
+@media (max-width: 991px){
+    .about-us .container {       
+       flex-direction: column;
+    }
+}
 .about-us img {
     width: 500px;
     height: 500px;
+}
+@media (max-width: 991px){
+    .about-us img  {       
+        width: 100%;
+    }
 }
 .about-us .description {
     font-size: 1.3rem;

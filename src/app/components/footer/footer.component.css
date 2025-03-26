@@ -15,6 +15,11 @@
     position: relative;
     display: flex;
 }
+@media (max-width: 991px){
+    .footer .container {    
+       flex-direction: column;
+    }
+}
 .footer .container .address,
 .footer .container .pages {
     flex: 1;
@@ -23,6 +28,12 @@
     display: flex;
     list-style: none;
     gap: 10px;
+}
+
+.footer .container .address .social li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff;
 }
 .footer .container .pages ul {
     display: flex;
@@ -35,6 +46,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
 }
 .footer .container .pages ul li::before { 
     content: ">";

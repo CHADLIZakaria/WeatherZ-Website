@@ -18,5 +18,16 @@
           <i class="bi bi-moon-fill"></i>
         </span>
       </button>
+      <div class="toggle-menu">
+        <button class="btn-menu" (click)="toggleMenu()">
+          <i class="bi bi-list"></i>
+        </button>
+        <ul class="links" [@menu-animation]="isMenuOpen? 'active': 'default'">
+          <li><a (click)="scrollTo('home')">Home</a></li>
+          <li><a (click)="scrollTo('about')">About</a></li>
+          <li><a (click)="scrollTo('features')">Features</a></li>
+          <li><a (click)="scrollTo('contact')">Contact</a></li>
+        </ul>
+      </div>
     </div>
 </nav>

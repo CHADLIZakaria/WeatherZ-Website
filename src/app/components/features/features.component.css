@@ -8,6 +8,11 @@
     row-gap: 20px;
     column-gap: 60px;
 }
+@media (max-width: 991px){
+    .features .container {       
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 .features .feature {
    background-color: white;
    color: #000000;

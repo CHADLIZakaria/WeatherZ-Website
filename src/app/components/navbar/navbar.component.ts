@@ -19,6 +19,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         animate('500ms ease-in-out')
       ])
     ]),
+    trigger('menu-animation', [
+      state('default', style({
+        opacity: 0,
+        transform: 'translateY(-200%)',
+      })),
+      state('active', style({
+        opacity: 1,
+        transform: 'translateY(0%)',
+      })),
+      transition('default <=> active', [
+        animate('500ms ease-in-out')
+      ])
+    ]),
     trigger('background', [
       state('hidden', style({ 'background-color': 'transparent' })),
       state('visible', style({ 'background': "var(--navbar-background-color)" })),
@@ -30,6 +43,7 @@ export class NavbarComponent {
   #theme: ThemeService = inject(ThemeService);
   scrollToSection = output<string>();
   showBackground = false
+  isMenuOpen = false
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -39,6 +53,7 @@ export class NavbarComponent {
     else if (this.showBackground && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
       this.showBackground = false;
     }
+    console.log(this.isMenuOpen)
   }
 
   toggleTheme() {
@@ -51,8 +66,12 @@ export class NavbarComponent {
 
   scrollTo(section: string) {
     this.scrollToSection.emit(section);
+    this.toggleMenu()
   }
 
-
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen
+    console.log(this.isMenuOpen)
+  }
 
 }
