@@ -53,7 +53,6 @@ export class NavbarComponent {
     else if (this.showBackground && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
       this.showBackground = false;
     }
-    console.log(this.isMenuOpen)
   }
 
   toggleTheme() {
@@ -71,7 +70,6 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen
-    console.log(this.isMenuOpen)
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { FeaturesComponent } from "./components/features/features.component";
@@ -13,11 +13,8 @@ import { ScrollTopComponent } from "./components/scroll-top/scroll-top.component
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'WeatherZ'; 
-
-  constructor() {    
-  }
+export class AppComponent  {
+  title = 'WeatherZ';
 
   scrollTo(section: string) {
     const element = document.getElementById(section)

@@ -11,13 +11,35 @@
     padding: 12px 10px;
     border-radius: 6px;
 }
-
+.contact .form .popup {
+    margin: auto;
+    background-color: #6ee06e;
+    width: 100%;
+    padding: 10px 5px;
+    text-align: center;
+    border-radius: 6px;
+}
+.contact .form .popup.popup-success {
+    background-color: #6ee06e;
+}
+.contact .form .popup.popup-error {
+    background-color: #ff405d;
+}
 .contact .form-group {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
-.contact .form-group .input-group{
+.contact .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.contact .form-group label i {
+    font-size: .5rem;
+    color: red;
+}
+.contact .form-group .input-group {
     position: relative;
 }
 .contact .form-group .input-group-textarea {
@@ -38,6 +60,10 @@
     border-radius: 6px 0px 0px 6px;
     align-items: center;
 }
+
+.contact .form-group .input-group.input-error i {
+    background-color: red;
+}
 .contact .form-group .input-group-textarea i {
     height: 100%;
 }
@@ -49,12 +75,30 @@
     border: 1px solid var(--main-color);
     background: #e7f1fb;
 }
-textarea {
+.contact .form-group input:focus-visible,
+.contact .form-group textarea:focus-visible {
+    outline: none;
+}
+.contact .input-group.input-error input,
+.contact .input-group.input-error textarea {
+    background-color: #fea7a7;
+    border-color: red;
+}
+.contact .form-group textarea {
     height: 100%;
 }
 .contact .form-group input::placeholder,
 .contact .form-group textarea::placeholder {
     color: var(--main-color);
+}
+.contact .form-group .input-group.input-error input::placeholder, 
+.contact .form-group .input-group.input-error textarea::placeholder {
+    color: red;
+}
+.contact .form-group .input-text-error {
+    color: red;
+    font-style: italic;
+    font-size: .8rem;
 }
 .contact .form button {
     background: var(--main-color);
@@ -71,4 +115,7 @@ textarea {
     justify-content: center;
     width: fit-content;
     align-self: flex-end;
+}
+.contact .form button:disabled {
+    cursor: not-allowed;
 }

@@ -1,41 +1,65 @@
 <div [@contact]="!isVisible" class="contact">
     <div class="title">Contact Us</div>
     <div class="container">
-        <div class="form">
-            <div class="form-group">
-                <label>Name</label>
-                <div class="input-group">
-                    <i class="bi bi-person"></i>
-                    <input type="text" placeholder="Enter Your Name" />
-                </div>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
+            <div [ngClass]="isSend ? 'popup-success' : 'popup-error'"  [@message-animation]="isSend==null ? 'hidden': 'visible'" class="popup">
+                {{messageSend}}
             </div>            
             <div class="form-group">
-                <label>Email</label>
-                <div class="input-group">
-                    <i class="bi bi-at"></i>
-                    <input type="email" placeholder="Enter Your Email" />
+                <label for="name">
+                    Name
+                    <i class="bi bi-asterisk"></i>
+                </label>
+                <div class="input-group" [class.input-error]="checkInputError('name', 'required')">
+                    <i class="bi bi-person"></i>
+                    <input id="name" formControlName="name" type="text" placeholder="Enter Your Name" />
                 </div>
+                @if(checkInputError('name', 'required')) {
+                    <span class="input-text-error">Name is required</span>
+                }
+            </div>            
+            <div class="form-group">
+                <label for="email">
+                    Email
+                    <i class="bi bi-asterisk"></i>
+                </label>
+                <div class="input-group" [class.input-error]="checkInputError('email', 'required') || checkInputError('email', 'email')">
+                    <i class="bi bi-at"></i>
+                    <input id="email" formControlName="email" type="email" placeholder="Enter Your Email" />
+                </div>
+                @if(checkInputError('email', 'required')) {
+                    <span class="input-text-error">Email is required</span>
+                }
+                @else if(checkInputError('email', 'email')) {
+                    <span class="input-text-error">Email is not valid</span>
+                }
             </div>
             <div class="form-group">
                 <label>Subject</label>
                 <div class="input-group">
                     <i class="bi bi-tag"></i>
-                    <input type="text" placeholder="Enter Your Subject" />
+                    <input formControlName="subject" type="text" placeholder="Enter Your Subject" />
                 </div>
             </div>
             <div class="form-group">
-                <label>Message</label>
-                <div class="input-group input-group-textarea">
+                <label>
+                    Message
+                    <i class="bi bi-asterisk"></i>
+                </label>
+                <div class="input-group input-group-textarea" [class.input-error]="checkInputError('message', 'required')">
                     <i class="bi bi-envelope"></i>
-                    <textarea placeholder="Enter your Message"></textarea>
+                    <textarea formControlName="message" placeholder="Enter your Message"></textarea>
                 </div>
+                @if(checkInputError('message', 'required')) {
+                    <span class="input-text-error">Message is required</span>
+                }
             </div>
-            <button>
+            <button type="submit" [disabled]="!contactForm.valid">
                 <span>
                     Send
                 </span>
                 <i class="bi bi-send"></i>
             </button>
-        </div>
+        </form>
     </div>
 </div>
