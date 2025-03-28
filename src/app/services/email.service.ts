@@ -5,11 +5,15 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
   providedIn: 'root'
 })
 export class EmailService {
-  private serviceID = 'service_nbugpe5';
-  private templateID = 'template_dj1qk3z';
-  private publicKey = 'LZ6i28GiJG0C4_ro-';
+  private serviceID;
+  private templateID;
+  private publicKey;
   
-  constructor() { }
+  constructor() { 
+    this.serviceID = process.env['SERVICE_ID']!;
+    this.templateID = process.env['TEMPLATE_ID']!;
+    this.publicKey = process.env['PUBLIC_KEY']!;
+  }
 
   sendEmail(mail: {
     name: string, 
